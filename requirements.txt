@@ -1,0 +1,7 @@
+docker
+pytest
+faker
+ipython
+
+
+

@@ -1,0 +1,102 @@
+20231231.18:00:10 INFO     dockt-cli.py:32 Welcome to docker experimental testing framework
+20231231.18:00:10 INFO     config_handler.py:10 setting default docker file path of: ./Dockerfile
+20231231.18:00:10 INFO     config_handler.py:28 parsing dockerfile of [15] lines
+20231231.18:00:10 INFO     config_handler.py:32 0    # syntax=docker/dockerfile:1
+20231231.18:00:10 INFO     config_handler.py:32 1    
+20231231.18:00:10 INFO     config_handler.py:32 2    ARG APP_NAME=reverse_words_v1.1
+20231231.18:00:10 INFO     config_handler.py:39 --> found expected item: ARG APP_NAME -> ARG APP_NAME=reverse_words_v1.1
+20231231.18:00:10 INFO     config_handler.py:32 3    ARG TESTED_APIS_LIST=reverse,restore
+20231231.18:00:10 INFO     config_handler.py:39 --> found expected item: ARG TESTED_APIS_LIST -> ARG TESTED_APIS_LIST=reverse,restore
+20231231.18:00:10 INFO     config_handler.py:45 Splitting tested APIs into list - expected comma seperated
+20231231.18:00:10 INFO     config_handler.py:32 4    
+20231231.18:00:10 INFO     config_handler.py:32 5    FROM python:3
+20231231.18:00:10 INFO     config_handler.py:32 6    
+20231231.18:00:10 INFO     config_handler.py:32 7    WORKDIR /usr/src/app
+20231231.18:00:10 INFO     config_handler.py:32 8    
+20231231.18:00:10 INFO     config_handler.py:32 9    COPY src/ .
+20231231.18:00:10 INFO     config_handler.py:32 10   RUN pip install --no-cache-dir -r requirements.txt
+20231231.18:00:10 INFO     config_handler.py:32 11   
+20231231.18:00:10 INFO     config_handler.py:32 12   CMD [ "python", "app.py" ]
+20231231.18:00:10 INFO     config_handler.py:39 --> found expected item: CMD -> CMD [ "python", "app.py" ]
+20231231.18:00:10 INFO     config_handler.py:32 13   
+20231231.18:00:10 INFO     config_handler.py:32 14   EXPOSE 5000
+20231231.18:00:10 INFO     config_handler.py:39 --> found expected item: EXPOSE -> EXPOSE 5000
+20231231.18:00:10 INFO     dockt-cli.py:112 app_config_dict: {'tested_resource_name': 'reverse_words_v1.1', 'exposed_ports': '5000', 'resource_cmd': '[ "python", "app.py" ]', 'tested_apis_list': ['reverse', 'restore'], 'dockerfile_path': './Dockerfile'}
+20231231.18:00:10 INFO     dockt-cli.py:186 Found existing containers for app with image: reverse_words_v1.1, reusing
+20231231.18:00:10 INFO     dockt-cli.py:216 Running tests, pytest_predicates: ./tests
+20231231.18:00:11 INFO     pytest_utils.py:40 pytest app resource setup
+20231231.18:00:11 INFO     config_handler.py:10 setting default docker file path of: ./Dockerfile
+20231231.18:00:11 INFO     config_handler.py:28 parsing dockerfile of [15] lines
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: ARG APP_NAME -> ARG APP_NAME=reverse_words_v1.1
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: ARG TESTED_APIS_LIST -> ARG TESTED_APIS_LIST=reverse,restore
+20231231.18:00:11 INFO     config_handler.py:45 Splitting tested APIs into list - expected comma seperated
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: CMD -> CMD [ "python", "app.py" ]
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: EXPOSE -> EXPOSE 5000
+20231231.18:00:11 INFO     test_reserve.py:16 Sanity validation for contenerized_app with properties of ---> image_name: reverse_words_v1.1, exposed_ports: 5000, resource_api: ['reverse', 'restore']
+20231231.18:00:11 INFO     test_reserve.py:19 executing test against: http://127.0.0.1:5000/reverse
+20231231.18:00:11 INFO     test_reserve.py:29 Validating status code of request
+20231231.18:00:11 INFO     test_reserve.py:31 Comparing expected result to result from endpoint
+20231231.18:00:11 INFO     test_reserve.py:37 executing test against: http://127.0.0.1:5000/reverse
+20231231.18:00:11 INFO     test_reserve.py:42 Validating reverse of object with 0 elements 
+20231231.18:00:11 INFO     test_reserve.py:48 Validating status code of request
+20231231.18:00:11 INFO     test_reserve.py:50 Comparing expected result to result from endpoint
+20231231.18:00:11 INFO     test_reserve.py:42 Validating reverse of object with 1 elements 
+20231231.18:00:11 INFO     test_reserve.py:48 Validating status code of request
+20231231.18:00:11 INFO     test_reserve.py:50 Comparing expected result to result from endpoint
+20231231.18:00:11 INFO     test_reserve.py:42 Validating reverse of object with 42 elements 
+20231231.18:00:11 INFO     test_reserve.py:48 Validating status code of request
+20231231.18:00:11 INFO     test_reserve.py:50 Comparing expected result to result from endpoint
+20231231.18:00:11 INFO     test_reserve.py:42 Validating reverse of object with 149 elements 
+20231231.18:00:11 INFO     test_reserve.py:48 Validating status code of request
+20231231.18:00:11 INFO     test_reserve.py:50 Comparing expected result to result from endpoint
+20231231.18:00:11 INFO     test_reserve.py:53 Validating reverse of empty string
+20231231.18:00:11 INFO     test_reserve.py:59 Validating status code of request
+20231231.18:00:11 INFO     test_reserve.py:61 Comparing expected result to result from endpoint
+20231231.18:00:11 INFO     test_reserve.py:69 testing [['asfasfaf', ['asfasf']],{asfasf}', \'asfasf\`'] against: http://127.0.0.1:5000/reverse
+20231231.18:00:11 INFO     test_reserve.py:70 since input is still a string, but with unexpected chars, it can be reversed
+20231231.18:00:11 INFO     test_reserve.py:71 expecting - request success
+20231231.18:00:11 INFO     test_reserve.py:76 Comparing expected result to result from endpoint
+20231231.18:00:11 INFO     test_reserve.py:79 testing incorrecrt query parameter against: http://127.0.0.1:5000/reverse
+20231231.18:00:11 INFO     test_reserve.py:84 Comparing expected result to result from endpoint
+20231231.18:00:11 INFO     test_reserve.py:91 executing test against: http://127.0.0.1:5000/
+20231231.18:00:11 INFO     test_reserve.py:91 executing test against: http://127.0.0.1:5000/notexistingurl
+20231231.18:00:11 INFO     test_reserve.py:99 executing test against: http://127.0.0.1:5000/reverse
+20231231.18:00:11 INFO     test_reserve.py:101 testing method: POST
+20231231.18:00:11 INFO     test_reserve.py:101 testing method: PUT
+20231231.18:00:11 INFO     test_reserve.py:101 testing method: DELETE
+20231231.18:00:11 INFO     pytest_utils.py:40 pytest app resource setup
+20231231.18:00:11 INFO     config_handler.py:10 setting default docker file path of: ./Dockerfile
+20231231.18:00:11 INFO     config_handler.py:28 parsing dockerfile of [15] lines
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: ARG APP_NAME -> ARG APP_NAME=reverse_words_v1.1
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: ARG TESTED_APIS_LIST -> ARG TESTED_APIS_LIST=reverse,restore
+20231231.18:00:11 INFO     config_handler.py:45 Splitting tested APIs into list - expected comma seperated
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: CMD -> CMD [ "python", "app.py" ]
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: EXPOSE -> EXPOSE 5000
+20231231.18:00:11 INFO     test_restore.py:15 Sanity validation for contenerized_app with properties of ---> image_name: reverse_words_v1.1, exposed_ports: 5000, resource_api: ['reverse', 'restore']
+20231231.18:00:11 INFO     test_restore.py:23 executing test against: http://127.0.0.1:5000/restore
+20231231.18:00:11 INFO     test_restore.py:31 Validating status code of: http://127.0.0.1:5000/reverse
+20231231.18:00:11 INFO     test_restore.py:33 Validating expected result of: http://127.0.0.1:5000/reverse
+20231231.18:00:11 INFO     test_restore.py:37 Validating status code of: <Response [200]>
+20231231.18:00:11 INFO     test_restore.py:41 Validating expected result of: http://127.0.0.1:5000/restore
+20231231.18:00:11 WARNING  test_restore.py:42 potential race condition ---> if another request sent at same time to /reverse ---> it may override cahced value
+20231231.18:00:11 INFO     pytest_utils.py:40 pytest app resource setup
+20231231.18:00:11 INFO     config_handler.py:10 setting default docker file path of: ./Dockerfile
+20231231.18:00:11 INFO     config_handler.py:28 parsing dockerfile of [15] lines
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: ARG APP_NAME -> ARG APP_NAME=reverse_words_v1.1
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: ARG TESTED_APIS_LIST -> ARG TESTED_APIS_LIST=reverse,restore
+20231231.18:00:11 INFO     config_handler.py:45 Splitting tested APIs into list - expected comma seperated
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: CMD -> CMD [ "python", "app.py" ]
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: EXPOSE -> EXPOSE 5000
+20231231.18:00:11 INFO     pytest_utils.py:40 pytest app resource setup
+20231231.18:00:11 INFO     config_handler.py:10 setting default docker file path of: ./Dockerfile
+20231231.18:00:11 INFO     config_handler.py:28 parsing dockerfile of [15] lines
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: ARG APP_NAME -> ARG APP_NAME=reverse_words_v1.1
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: ARG TESTED_APIS_LIST -> ARG TESTED_APIS_LIST=reverse,restore
+20231231.18:00:11 INFO     config_handler.py:45 Splitting tested APIs into list - expected comma seperated
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: CMD -> CMD [ "python", "app.py" ]
+20231231.18:00:11 INFO     config_handler.py:39 --> found expected item: EXPOSE -> EXPOSE 5000
+20231231.18:00:11 INFO     pytest_utils.py:57 pytest app resource teardown
+20231231.18:00:11 INFO     pytest_utils.py:57 pytest app resource teardown
+20231231.18:00:11 INFO     pytest_utils.py:57 pytest app resource teardown
+20231231.18:00:11 INFO     pytest_utils.py:57 pytest app resource teardown
+20231231.18:00:11 INFO     dockt-cli.py:199 no failures detected, no need to stop app, keep rocking
